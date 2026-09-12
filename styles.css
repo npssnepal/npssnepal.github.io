@@ -22,24 +22,33 @@ body {
   background: linear-gradient(120deg, #0f4c81, #1d3557);
   color: #fff;
   padding-bottom: 3rem;
+  min-height: 100vh;
 }
 
 .nav {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.85rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 40, 65, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0 0 1rem 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .brand {
   color: #fff;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
+  letter-spacing: 0.2px;
 }
 
 .nav-toggle {
@@ -64,25 +73,39 @@ body {
   border-radius: 2px;
 }
 
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  padding: 0.35rem 0.6rem;
+  display: inline-block;
+  padding: 0.45rem 0.8rem;
   border-radius: 999px;
-  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-links a:hover {
   background: rgba(255, 255, 255, 0.16);
+}
+
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .hero-content {
@@ -231,16 +254,31 @@ main,
 @media (max-width: 760px) {
   .nav {
     align-items: center;
+    flex-wrap: wrap;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
   }
 
   .nav-toggle {
     display: inline-flex;
   }
 
-  .nav-links {
+  .nav-menu {
     display: none;
     width: 100%;
+    margin-top: 0.35rem;
+  }
+
+  .nav-menu.is-open {
+    display: block;
+  }
+
+  .nav-links {
+    width: 100%;
     flex-direction: column;
+    align-items: stretch;
     gap: 0.45rem;
     margin-top: 0.35rem;
     padding: 0.7rem;
@@ -248,10 +286,6 @@ main,
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0.9rem;
     backdrop-filter: blur(4px);
-  }
-
-  .nav-links.is-open {
-    display: flex;
   }
 
   .nav-links a {
