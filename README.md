@@ -1,4 +1,4 @@
-<img width="1702" height="630" alt="Nepal Physical STUDENTS’ SOCIETY" src="https://github.com/user-attachments/assets/f5b0bf9f-e002-40ab-a431-669ac81377e2" />
+<img height="500" alt="Nepal Physical STUDENTS’ SOCIETY" src="https://github.com/user-attachments/assets/f5b0bf9f-e002-40ab-a431-669ac81377e2" />
 
 **Nepal Physical Students’ Society (NPSS)** is a student-led academic and scientific community dedicated to bringing together students of physics and related disciplines across Nepal. NPSS aims to promote interest in physics, scientific research, innovation, academic collaboration, and professional development among students.
 
