@@ -14,7 +14,18 @@
     <header class="hero" id="home">
       <nav class="nav">
         <a class="brand" href="#home">NPSS Nepal</a>
-        <ul class="nav-links">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#vision-mission">Vision & Mission</a></li>
           <li><a href="#activities">Activities</a></li>
@@ -143,6 +154,20 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
     </script>
   </body>
 </html>
