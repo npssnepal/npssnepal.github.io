@@ -17,7 +17,7 @@
         <button
           class="nav-toggle"
           type="button"
-          aria-label="Toggle navigation"
+          aria-label="Toggle navigation menu"
           aria-expanded="false"
           aria-controls="nav-links"
         >
@@ -25,13 +25,15 @@
           <span></span>
           <span></span>
         </button>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#vision-mission">Vision & Mission</a></li>
-          <li><a href="#activities">Activities</a></li>
-          <li><a href="#join">Join</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-menu" id="nav-links">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#vision-mission">Vision & Mission</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#join">Join</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </nav>
       <div class="hero-content">
         <img
@@ -155,19 +157,35 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
       const navToggle = document.querySelector(".nav-toggle");
-      const navLinks = document.getElementById("nav-links");
+      const navMenu = document.getElementById("nav-links");
 
-      navToggle.addEventListener("click", () => {
-        const isOpen = navLinks.classList.toggle("is-open");
-        navToggle.setAttribute("aria-expanded", String(isOpen));
-      });
-
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("is-open");
+      if (navToggle && navMenu) {
+        const closeMenu = () => {
+          navMenu.classList.remove("is-open");
           navToggle.setAttribute("aria-expanded", "false");
+        };
+
+        navToggle.addEventListener("click", () => {
+          const isOpen = navMenu.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
         });
-      });
+
+        navMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 760) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeMenu();
+          }
+        });
+      }
     </script>
   </body>
 </html>
