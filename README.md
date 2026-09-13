@@ -30,9 +30,3 @@ To build a strong, collaborative, and inclusive community of physics students th
 ## Join NPSS
 
 Whether you are an undergraduate student, graduate student, researcher, educator, or physics enthusiast, NPSS provides an opportunity to connect with a growing community interested in **physics and scientific advancement in Nepal**.
-
-**Learn • Connect • Research • Innovate**
-
-### Contact & Social Links
-
-**Email:** npss.physics@gmail.com | **Facebook:** https://www.facebook.com/npssnepal | **Instagram:** https://www.instagram.com/npssnepal
