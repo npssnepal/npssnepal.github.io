@@ -9,11 +9,56 @@
     />
     <title>Nepal Physical Students’ Society (NPSS)</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Keep the navbar in the normal page flow; never pin it to the viewport. */
+      .hero .nav {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .hero .nav-menu {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+
+      .hero .nav-links {
+        display: flex;
+        flex-wrap: nowrap;
+        min-width: max-content;
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .hero .nav-menu {
+          flex: 1 1 auto;
+        }
+
+        .hero .nav-links {
+          gap: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="hero" id="home">
       <nav class="nav">
-        <a class="brand" href="#home">NPSS Nepal</a>
+        <a class="brand" href="#home" aria-label="NPSS Nepal home">
+          <img
+            src="./NPSS Nepal Logo (2000 x 1000 px).png"
+            alt="NPSS Nepal logo"
+            style="width: 120px; height: auto"
+          />
+        </a>
         <button
           class="nav-toggle"
           type="button"
@@ -39,9 +84,9 @@
         <img
           class="logo"
           src="https://github.com/user-attachments/assets/f5b0bf9f-e002-40ab-a431-669ac81377e2"
-          alt="Nepal Physical Students’ Society logo"
+          alt="NPSS Backgroundlogo"
         />
-        <h1>Nepal Physical Students’ Society</h1>
+        <h1>Nepal Physical Students’ Society (NPSS)</h1>
         <p>
           A student-led academic and scientific community for physics students
           across Nepal.
